@@ -1,5 +1,8 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
+import "@fontsource/barlow/300.css";
+import "@fontsource/barlow/400.css";
+import "@fontsource/barlow/600.css";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -13,5 +16,9 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  return <Slot />;
+  return (
+    <main class="min-h-screen">
+      <Slot />
+    </main>
+  );
 });
