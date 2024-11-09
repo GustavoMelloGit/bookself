@@ -11,8 +11,7 @@ export default component$(() => {
       </Link>
       <div class="flex items-center gap-2">
         <Link href={Routes.createCollection}>Criar coleção</Link>
-        <Link href={Routes.profile}>
-          <span class="sr-only">Ir para Perfil</span>
+        <Link href={Routes.profile} aria-label="Ir para Perfil">
           <PersonCircle class="size-8" />
         </Link>
       </div>
