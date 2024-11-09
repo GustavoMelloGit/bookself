@@ -25,7 +25,7 @@ export default component$<Props>(({ cover, description, name, id }) => {
         />
       </div>
       <div class="space-y-2 p-2">
-        <p class="t-sb-16 text-gray-900">{name}</p>
+        <p class="t-sb-16 line-clamp-2 text-gray-900">{name}</p>
         <p class="t-r-14 line-clamp-2 text-gray-700">{description}</p>
       </div>
     </div>
