@@ -6,13 +6,13 @@ import { Routes } from "~/constants/routes";
 export default component$(() => {
   return (
     <header class="flex items-center justify-between">
-      <Link class="t-sb-24" href={Routes.home}>
+      <Link class="t-sb-24" href={Routes.home} aria-label="Ir para Home">
         BookSelf
       </Link>
       <div class="flex items-center gap-2">
         <Link href={Routes.createCollection}>Criar coleção</Link>
         <Link href={Routes.profile}>
-          <span class="sr-only">Perfil</span>
+          <span class="sr-only">Ir para Perfil</span>
           <PersonCircle class="size-8" />
         </Link>
       </div>
