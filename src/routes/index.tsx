@@ -68,6 +68,7 @@ export default component$(() => {
           {sections.value.map((section) => (
             <CollectionRow
               key={section.id}
+              sectionId={section.id}
               label={section.name}
               collections={section.collections}
             />

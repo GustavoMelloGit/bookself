@@ -1,4 +1,6 @@
 import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
+import { Routes } from "~/constants/routes";
 import CollectionCard from "./CollectionCard";
 
 type Collection = {
@@ -11,13 +13,19 @@ type Collection = {
 type Props = {
   collections: Collection[];
   label: string;
+  sectionId: string;
 };
 
-export default component$<Props>(({ collections, label }) => {
+export default component$<Props>(({ collections, label, sectionId }) => {
   return (
     <div class="space-y-2">
-      <h2 class="t-sb-16 text-gray-900">{label}</h2>
-      <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+      <div class="flex items-center justify-between">
+        <h2 class="t-sb-16 text-gray-900">{label}</h2>
+        <Link href={Routes.section(sectionId)} class="t-l-16">
+          Ver mais
+        </Link>
+      </div>
+      <div class="flex snap-x snap-mandatory gap-2 overflow-x-auto pb-2">
         {collections.map((collection) => (
           <div
             key={collection.id}
