@@ -18,7 +18,7 @@ type Props = {
 
 export default component$<Props>(({ collections, label, sectionId }) => {
   return (
-    <div class="space-y-2">
+    <section class="space-y-2">
       <div class="flex items-center justify-between">
         <h2 class="t-sb-16 text-gray-900">{label}</h2>
         <Link href={Routes.section(sectionId)} class="t-l-16">
@@ -40,6 +40,6 @@ export default component$<Props>(({ collections, label, sectionId }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 });
