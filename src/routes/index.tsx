@@ -11,7 +11,6 @@ import IconButton from "~/components/IconButton";
 import Input from "~/components/Input";
 import { Search } from "~/components/icons/Search";
 import CollectionRow from "~/modules/home/components/CollectionRow";
-import Header from "~/modules/home/components/Header";
 import { HomeService } from "~/modules/home/service/HomeService";
 
 const SearchSchema = v.object({
@@ -43,38 +42,35 @@ export default component$(() => {
   const sections = useListSectionsLoader();
 
   return (
-    <div class="space-y-12 p-4">
-      <Header />
-      <section class="space-y-8">
-        <Form>
-          <div class="flex items-end gap-2">
-            <Field name="search">
-              {(field, props) => (
-                <Input
-                  {...props}
-                  label="Pesquisar"
-                  type="search"
-                  placeholder="Pesquise uma coleção"
-                  error={field.error}
-                />
-              )}
-            </Field>
-            <IconButton aria-label="Pesquisar" type="submit">
-              <Search class="size-6" />
-            </IconButton>
-          </div>
-        </Form>
-        <div class="space-y-4">
-          {sections.value.map((section) => (
-            <CollectionRow
-              key={section.id}
-              sectionId={section.id}
-              label={section.name}
-              collections={section.collections}
-            />
-          ))}
+    <div class="space-y-8">
+      <Form>
+        <div class="flex items-end gap-2">
+          <Field name="search">
+            {(field, props) => (
+              <Input
+                {...props}
+                label="Pesquisar"
+                type="search"
+                placeholder="Pesquise uma coleção"
+                error={field.error}
+              />
+            )}
+          </Field>
+          <IconButton aria-label="Pesquisar" type="submit">
+            <Search class="size-6" />
+          </IconButton>
         </div>
-      </section>
+      </Form>
+      <div class="space-y-4">
+        {sections.value.map((section) => (
+          <CollectionRow
+            key={section.id}
+            sectionId={section.id}
+            label={section.name}
+            collections={section.collections}
+          />
+        ))}
+      </div>
     </div>
   );
 });
