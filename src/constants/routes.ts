@@ -1,6 +1,6 @@
 export const Routes = {
   home: "/",
-  collection: (id: string) => `/collection/${id}`,
+  collection: (id: string) => `/collection/details/${id}`,
   section: (id: string) => `/section/${id}`,
-  createCollection: "/create-collection",
+  createCollection: "/collection/create",
 };
