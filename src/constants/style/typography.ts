@@ -33,6 +33,7 @@ export const typographyPlugin = plugin(function ({ addComponents }) {
       return {
         [`.t-${weight}-${size}`]: {
           fontWeight: value,
+          lineHeight: "1.2em",
           ...props,
         },
       };
