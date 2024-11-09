@@ -18,8 +18,9 @@ export default component$<Props>(
         <input
           class={cn(
             "t-r-16 text-gray-900",
-            "block w-full rounded-lg p-2.5",
-            "border-none bg-gray-50 ring-1 ring-inset ring-gray-400",
+            "block h-10 w-full rounded-lg px-2.5",
+            "border-none bg-gray-50",
+            "ring-1 ring-inset ring-gray-400",
             "focus:ring-blue-500",
             "focus-visible:outline-none focus-visible:ring-2",
             "placeholder-shown:ring-gray-300",
