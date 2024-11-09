@@ -1,15 +1,13 @@
-import { component$ } from "@builder.io/qwik";
-import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
-import {
-  formAction$,
-  useForm,
-  valiForm$,
-  type InitialValues,
-} from "@modular-forms/qwik";
+import type { QRL } from "@builder.io/qwik";
+import { $, component$ } from "@builder.io/qwik";
+import { routeLoader$, useNavigate } from "@builder.io/qwik-city";
+import type { SubmitHandler } from "@modular-forms/qwik";
+import { useForm, valiForm$, type InitialValues } from "@modular-forms/qwik";
 import * as v from "valibot";
 import IconButton from "~/components/IconButton";
 import Input from "~/components/Input";
 import { Search } from "~/components/icons/Search";
+import { Routes } from "~/constants/routes";
 import CollectionRow from "~/modules/home/components/CollectionRow";
 import { HomeService } from "~/modules/home/service/HomeService";
 
@@ -29,21 +27,24 @@ export const useListSectionsLoader = routeLoader$(async () => {
   return HomeService.listHomeSections();
 });
 
-export const useFormAction = formAction$<SearchFormValues>((values) => {
-  console.log(values);
-}, valiForm$(SearchSchema));
-
 export default component$(() => {
   const [_form, { Form, Field }] = useForm<SearchFormValues>({
     loader: useSearchFormLoader(),
-    action: useFormAction(),
     validate: valiForm$(SearchSchema),
   });
+  const nav = useNavigate();
   const sections = useListSectionsLoader();
+
+  const handleSubmit: QRL<SubmitHandler<SearchFormValues>> = $(
+    async (values) => {
+      const params = new URLSearchParams({ query: values.search });
+      await nav(Routes.search + `?${params.toString()}`);
+    },
+  );
 
   return (
     <div class="space-y-8">
-      <Form>
+      <Form onSubmit$={handleSubmit}>
         <div class="flex items-end gap-2">
           <Field name="search">
             {(field, props) => (
@@ -74,13 +75,3 @@ export default component$(() => {
     </div>
   );
 });
-
-export const head: DocumentHead = {
-  title: "BookSelf",
-  meta: [
-    {
-      name: "description",
-      content: "Compartilhe seus livros favoritos com a comunidade",
-    },
-  ],
-};

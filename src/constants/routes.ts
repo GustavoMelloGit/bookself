@@ -4,4 +4,5 @@ export const Routes = {
   section: (id: string) => `/section/${id}`,
   createCollection: "/collection/create",
   profile: "/profile",
+  search: "/search",
 };
