@@ -1,6 +1,10 @@
-export type ListCollectionsOutputDto = Array<{
+export type ListHomeSectionsOutputDto = Array<{
   id: string;
   name: string;
-  description: string;
-  cover: string;
+  collections: Array<{
+    id: string;
+    name: string;
+    description: string;
+    cover: string;
+  }>;
 }>;
