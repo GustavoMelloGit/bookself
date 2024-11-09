@@ -21,7 +21,7 @@ export default component$<Props>(
             "block h-10 w-full rounded-lg px-2.5",
             "border-none bg-gray-50",
             "ring-1 ring-inset ring-gray-400",
-            "focus:ring-blue-500",
+            "focus:ring-current",
             "focus-visible:outline-none focus-visible:ring-2",
             "placeholder-shown:ring-gray-300",
             error && "ring-red-500 focus:ring-red-500",
