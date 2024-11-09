@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { Link, routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
+import { routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import {
   formAction$,
   useForm,
@@ -9,9 +9,9 @@ import {
 import * as v from "valibot";
 import IconButton from "~/components/IconButton";
 import Input from "~/components/Input";
-import { PersonCircle } from "~/components/icons/PersonCircle";
 import { Search } from "~/components/icons/Search";
 import CollectionRow from "~/modules/home/components/CollectionRow";
+import Header from "~/modules/home/components/Header";
 import { HomeService } from "~/modules/home/service/HomeService";
 
 const SearchSchema = v.object({
@@ -26,8 +26,8 @@ export const useSearchFormLoader = routeLoader$<
   search: "",
 }));
 
-export const useListCollectionsLoader = routeLoader$(async () => {
-  return HomeService.listCollections();
+export const useListSectionsLoader = routeLoader$(async () => {
+  return HomeService.listHomeSections();
 });
 
 export const useFormAction = formAction$<SearchFormValues>((values) => {
@@ -40,17 +40,11 @@ export default component$(() => {
     action: useFormAction(),
     validate: valiForm$(SearchSchema),
   });
-  const collections = useListCollectionsLoader();
+  const sections = useListSectionsLoader();
 
   return (
     <div class="space-y-12 p-4">
-      <header class="flex items-center justify-between">
-        <p class="font-semibold">BookSelf</p>
-        <div class="flex items-center gap-2">
-          <Link href="/">Criar coleção</Link>
-          <PersonCircle class="size-8" />
-        </div>
-      </header>
+      <Header />
       <section class="space-y-8">
         <Form>
           <div class="flex items-end gap-2">
@@ -71,15 +65,12 @@ export default component$(() => {
           </div>
         </Form>
         <div class="space-y-4">
-          <CollectionRow
-            label="Novas Coleções"
-            collections={collections.value}
-          />
-          <CollectionRow
-            label="Mais Curtidas"
-            collections={collections.value}
-          />
-          <CollectionRow label="Por Gênero" collections={collections.value} />
+          {sections.value.map((section) => (
+            <CollectionRow
+              label={section.name}
+              collections={section.collections}
+            />
+          ))}
         </div>
       </section>
     </div>
