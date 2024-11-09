@@ -29,8 +29,8 @@ const sizes = {
 
 const weights = {
   sb: 600,
-  m: 500,
   r: 400,
+  l: 300,
 };
 
 export const typographyPlugin = plugin(function ({ addComponents }) {
