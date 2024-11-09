@@ -47,6 +47,8 @@
   },
   "dependencies": {
     "@fontsource/barlow": "^5.1.0",
-    "tailwind-merge": "^2.5.4"
+    "@modular-forms/qwik": "^0.28.2",
+    "tailwind-merge": "^2.5.4",
+    "valibot": "^1.0.0-beta.3"
   }
 }
