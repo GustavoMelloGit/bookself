@@ -66,7 +66,7 @@ export default component$(() => {
               )}
             </Field>
             <IconButton aria-label="Pesquisar" type="submit">
-              <Search />
+              <Search class="size-6" />
             </IconButton>
           </div>
         </Form>
