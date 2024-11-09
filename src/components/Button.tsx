@@ -1,11 +1,16 @@
 import { component$, QwikIntrinsicElements, Slot } from "@builder.io/qwik";
 import { cn } from "~/utils/cn";
+import Spinner from "./Spinner";
 
-export default component$<QwikIntrinsicElements["button"]>(
-  ({ class: className, ...props }) => {
+type Props = QwikIntrinsicElements["button"] & {
+  isLoading?: boolean;
+};
+export default component$<Props>(
+  ({ class: className, isLoading = false, ...props }) => {
     return (
       <button
         type="button"
+        disabled={isLoading}
         {...props}
         class={cn(
           "rounded-lg",
@@ -16,7 +21,7 @@ export default component$<QwikIntrinsicElements["button"]>(
           className,
         )}
       >
-        <Slot />
+        {isLoading ? <Spinner class="size-4" /> : <Slot />}
       </button>
     );
   },
