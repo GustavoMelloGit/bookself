@@ -9,7 +9,7 @@ type Props = QwikIntrinsicElements["input"] & {
 export default component$<Props>(
   ({ class: className, label, error, ...props }) => {
     return (
-      <div class="flex flex-col gap-1">
+      <div class="flex w-full flex-col gap-1">
         {label && (
           <label class="t-r-16 block text-gray-900" for={props.id}>
             {label}
@@ -19,8 +19,10 @@ export default component$<Props>(
           class={cn(
             "t-r-16 text-gray-900",
             "block w-full rounded-lg p-2.5",
-            "border border-gray-300 bg-gray-50",
-            "focus:border-blue-500 focus:ring-blue-500",
+            "border-none bg-gray-50 ring-1 ring-inset ring-gray-300",
+            "focus:ring-blue-500",
+            "focus-visible:outline-none focus-visible:ring-2",
+            error && "ring-red-500 focus:ring-red-500",
             className,
           )}
           aria-invalid={error ? "true" : "false"}
