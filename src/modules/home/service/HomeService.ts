@@ -1,4 +1,4 @@
-import { ListHomeSectionsOutputDto } from "./HomeService.dto";
+import type { ListHomeSectionsOutputDto } from "./HomeService.dto";
 
 const mockCollections = [
   {

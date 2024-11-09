@@ -1,4 +1,5 @@
-import { component$, QwikIntrinsicElements, Slot } from "@builder.io/qwik";
+import type { QwikIntrinsicElements} from "@builder.io/qwik";
+import { component$, Slot } from "@builder.io/qwik";
 import { cn } from "~/utils/cn";
 import Spinner from "./Spinner";
 

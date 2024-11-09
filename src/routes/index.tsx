@@ -35,7 +35,7 @@ export const useFormAction = formAction$<SearchFormValues>((values) => {
 }, valiForm$(SearchSchema));
 
 export default component$(() => {
-  const [searchForm, { Form, Field }] = useForm<SearchFormValues>({
+  const [_form, { Form, Field }] = useForm<SearchFormValues>({
     loader: useSearchFormLoader(),
     action: useFormAction(),
     validate: valiForm$(SearchSchema),
@@ -67,6 +67,7 @@ export default component$(() => {
         <div class="space-y-4">
           {sections.value.map((section) => (
             <CollectionRow
+              key={section.id}
               label={section.name}
               collections={section.collections}
             />

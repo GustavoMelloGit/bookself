@@ -19,7 +19,10 @@ export default component$<Props>(({ collections, label }) => {
       <h2 class="t-sb-16 text-gray-900">{label}</h2>
       <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
         {collections.map((collection) => (
-          <div class="w-1/2 shrink-0 snap-start snap-always">
+          <div
+            key={collection.id}
+            class="w-1/2 shrink-0 snap-start snap-always md:w-1/3 lg:w-1/4"
+          >
             <CollectionCard
               id={collection.id}
               cover={collection.cover}

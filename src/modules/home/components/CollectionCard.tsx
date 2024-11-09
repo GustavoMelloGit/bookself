@@ -15,7 +15,14 @@ export default component$<Props>(({ cover, description, name, id }) => {
         <span class="sr-only">Ir para coleção {name}</span>
       </Link>
       <div class="aspect-video w-full overflow-hidden rounded-t-lg">
-        <img class="w-full object-cover" src={cover} alt="" />
+        <img
+          class="w-full object-cover"
+          width="400"
+          height="225"
+          src={cover}
+          alt={name}
+          loading="lazy"
+        />
       </div>
       <div class="space-y-2 p-2">
         <h5 class="t-sb-16 text-gray-900">{name}</h5>

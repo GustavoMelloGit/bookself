@@ -1,4 +1,5 @@
-import { component$, QwikIntrinsicElements } from "@builder.io/qwik";
+import type { QwikIntrinsicElements } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { cn } from "~/utils/cn";
 
 export default component$<QwikIntrinsicElements["svg"]>(
