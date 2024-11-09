@@ -11,7 +11,10 @@ export default component$(() => {
       </Link>
       <div class="flex items-center gap-2">
         <Link href={Routes.createCollection}>Criar coleção</Link>
-        <PersonCircle class="size-8" />
+        <Link href={Routes.profile}>
+          <span class="sr-only">Perfil</span>
+          <PersonCircle class="size-8" />
+        </Link>
       </div>
     </header>
   );
