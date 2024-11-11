@@ -1,65 +1,72 @@
-# Qwik City App ⚡️
+# BookSelf 📚
 
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+**BookSelf** é uma plataforma para criar, organizar e compartilhar **tierlists de livros**. Escolha um tema, organize seus livros favoritos em tiers e compartilhe suas opiniões e recomendações com outros leitores!
+
+## Sumário
+
+- [BookSelf 📚](#bookself-)
+  - [Sumário](#sumário)
+  - [Funcionalidades](#funcionalidades)
+  - [Estrutura do Projeto](#estrutura-do-projeto)
+  - [Como Rodar o Projeto](#como-rodar-o-projeto)
+  - [Comandos Disponíveis](#comandos-disponíveis)
+  - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+  - [Contribuindo](#contribuindo)
 
 ---
 
-## Project Structure
+## Funcionalidades
 
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+- Crie tierlists com livros de diferentes gêneros e temas.
+- Personalize a classificação dos livros em níveis (S, A, B, etc.).
+- Compartilhe suas tierlists com outros usuários e veja recomendações.
+- Descubra novos livros baseados nas tierlists de outros leitores.
 
-Inside your project, you'll see the following directory structure:
+## Estrutura do Projeto
 
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
+O projeto utiliza o framework [Qwik](https://qwik.dev/) com [QwikCity](https://qwik.dev/qwikcity/overview/) para a estruturação das rotas e layouts.
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
+- `src/routes`: Onde ficam as rotas baseadas em diretório. Arquivos `layout.tsx` definem layouts e `index.tsx` definem as páginas.
+- `src/components`: Diretório recomendado para componentes reutilizáveis.
+- `public`: Armazena arquivos estáticos como imagens e ícones.
 
-- `src/components`: Recommended directory for components.
+## Como Rodar o Projeto
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
+1. **Clone o repositório**:
 
-## Add Integrations and deployment
+   ```bash
+   git clone https://github.com/seu-usuario/bookself.git
+   cd bookself
+   ```
 
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+2. **Instale as dependências:**:
+   ```bash
+   npm install
+   ```
+3. **Inicie o projeto:**
+   ```bash
+   npm start
+   ```
+   Isso inicia o servidor local para desenvolvimento, usando a renderização no servidor (SSR).
 
-```shell
-npm run qwik add # or `yarn qwik add`
-```
+## Comandos Disponíveis
 
-## Development
+- `npm start`: Inicia o servidor de desenvolvimento.
+- `npm run build`: Gera uma build de produção do projeto.
+- `npm run preview`: Cria uma build de produção e inicia um servidor local para pré-visualização.
 
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+## Tecnologias Utilizadas
 
-```shell
-npm start # or `yarn start`
-```
+- [Qwik](https://qwik.dev/): Framework ultrarrápido para construção de sites.
+- [QwikCity](https://qwik.dev/docs/qwikcity/): Extensão para Qwik que facilita a criação de sites completos com roteamento baseado em diretórios.
+- [Vite](https://vite.dev/): Ferramenta de desenvolvimento para projetos modernos de front-end.
 
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+## Contribuindo
 
-## Preview
+Contribuições são bem-vindas! Para contribuir:
 
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-npm run preview # or `yarn preview`
-```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-npm run build # or `yarn build`
-```
+1. Faça um fork do projeto.
+2. Crie uma branch para a sua funcionalidade (git checkout -b nova-funcionalidade).
+3. Commit suas mudanças (git commit -m 'Adiciona nova funcionalidade').
+4. Faça push para a branch (git push origin nova-funcionalidade).
+5. Abra um Pull Request.
