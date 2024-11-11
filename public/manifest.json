@@ -1,9 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "qwik-project-name",
-  "short_name": "Welcome to Qwik",
+  "name": "bookself",
+  "short_name": "BookSelf",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A Qwik project app."
+  "description": "No BookSelf, você pode criar e compartilhar tierlists de livros em diversos temas. Organize e classifique suas leituras favoritas, de romances a ficção e mais!"
 }
